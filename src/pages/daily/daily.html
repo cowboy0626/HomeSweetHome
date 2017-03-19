@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>daily</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>유형</ion-label>
+      <ion-select [(ngModel)]="work.workType">
+        <ion-option *ngFor="let workType of workTypes" value="{{workType.type}}">{{workType.type}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>담당</ion-label>
+      <ion-select [(ngModel)]="work.worker">
+        <ion-option *ngFor="let worker of workers" value="{{worker}}">{{worker}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="work.comment" placeholder="기타 내용을 입력하세요"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button round color="accent" (click)="addWork()">추가</button>
+
+  <work-list [dateStr]="dateStr"></work-list>
+
+</ion-content>

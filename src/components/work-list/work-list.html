@@ -1,0 +1,13 @@
+<hr>
+<div *ngIf="works?.length>0">
+  <ion-card *ngFor="let work of works" (click)="showOptions(work.$key)">
+    <ion-card-header>
+      {{work.workType}}
+      <ion-badge item-right>{{work.worker}}</ion-badge>
+    </ion-card-header>
+    <ion-card-content>{{work.comment}}</ion-card-content>
+  </ion-card>
+</div>
+<div *ngIf="works?.length==0">
+  <p>...</p>
+</div>
